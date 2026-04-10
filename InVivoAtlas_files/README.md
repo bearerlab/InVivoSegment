@@ -33,7 +33,7 @@ This directory contains the files for the *InVivo* Atlas mouse brain required fo
 
 ### Required Files for InVivoSegment
 
-Please also see the [../examples/atlas/](https://github.com/bearererlab/InVivoSegment/examples/atals/) directory, which contains versions of these two files used in the segmentation examples.
+Please also see the [../examples/atlas/](https://github.com/bearererlab/InVivoSegment/examples/atlas/) directory, which contains versions of these two files used in the segmentation examples.
 
 These two files must match. Any changes made to the atlas must be reflected in the sorting/lookup table and visa versa.
 
