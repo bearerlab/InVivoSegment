@@ -33,15 +33,15 @@ This directory contains the files for the *InVivo* Atlas mouse brain required fo
 
 ### Required Files for InVivoSegment
 
-Please also see the [../examples/atlas/](https://github.com/bearererlab/InVivoSegment/examples/atlas/) directory, which contains versions of these two files used in the segmentation examples.
+Please also see the [../examples/atlas/](../examples/atlas/) directory, which contains versions of these two files used in the segmentation examples.
 
-These two files must match. Any changes made to the atlas must be reflected in the sorting/lookup table and visa versa.
+These two files must match. Any changes made to the atlas must be reflected in the sorting/lookup table and vice versa.
 
 #### **InVivoAtlas_Sort_v10.4.csv**
 
 - **Format**: Comma-separated values (CSV)
 - **Purpose**: Lookup table for atlas segment information
-- **Description**: Contains metadata for all 116 brain segments including:
+- **Description**: Contains metadata for all 116 brain segments, including:
   - `Index`: Numerical label corresponding to NIfTI voxel values
   - `SegmentName`: Full descriptive name of the brain region
   - `Abbr.Cleaned`: Standard abbreviation used in outputs and figures
