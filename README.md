@@ -4,7 +4,7 @@ A Python GUI application for anatomical segmentation of MRI brain images using t
 
 *If you use or modify this atlas or the InVivoSegment code, please cite this repository (see "Cite this Repository" above) and the published paper (DOI below).*
 
-[![bioRxiv](https://img.shields.io/badge/bioRxiv-10.XXXX%2FXXXXX-red)](https://doi.org/10.XXXX/XXXXX)
+[![bioRxiv](https://img.shields.io/badge/bioRxiv-10.XXXX%2FXXXXX-red](https://doi.org/10.64898/2026.04.10.717774)
 
 ## Overview
 
