@@ -1,0 +1,17 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+authors:
+- family-names: "Uselman"
+  given-names: "Taylor W."
+  orcid: "https://orcid.org/0000-0002-3856-5248"
+- family-names: "Jacobs"
+  given-names: "Russell E."
+  orcid: "https://orcid.org/0000-0002-8390-8529"
+- family-names: "Bearer"
+  given-names: "Elaine L."
+  orcid: "https://orcid.org/0000-0002-8390-8529"
+title: "InVivoSegment"
+version: 1.0.0
+doi: 10.5281/zenodo.19956949
+date-released: 2026-05-01
+url: "https://github.com/bearerlab/InVivoSegment"
