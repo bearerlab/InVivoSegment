@@ -52,8 +52,9 @@ python InVivoSegment.py
 Or, for more information about command-line options:
 
 ```bash
-python InVivoSegment.py --info
-python InVivoSegment.py --version
+python InVivoSegment.py -h
+python InVivoSegment.py --mode info
+python InVivoSegment.py --mode version
 ```
 
 ## Quick Start
