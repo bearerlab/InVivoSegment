@@ -156,20 +156,20 @@ working_directory/
 
 ### Validating Your Installation
 
-Before applying InVivoSegment to new data, we recommend confirming that your installation reproduces the reference results below. We focus here on the two examples used for quantitative validation in the associated paper; the noise-simulation example (`examples/noise_simulations/`) additionally characterizes segment-wise noise levels and is used to derive secondary thresholds, but is not required to confirm correct installation.
+Before applying InVivoSegment to new data, we recommend confirming that your installation reproduces the reference results below by running the `python InVivoSegment.py` function on the data in the `test` directory. We focus here on the two examples used for quantitative validation in the associated paper. The validation folders in the `examples` directory have the original validated output that one could use for comparison.
 
 **1. Multisite validation (simulated signal).**
 
-1. Load the aligned atlas files from `examples/atlas/` (`iwaInVivoAtlas_labels_v10.4.nii` and `InVivoAtlas_Sort_v10.4.csv`).
-2. Run `InVivoSegment.py` on `examples/validation/InputData/MultisiteValidation.nii`, a single simulated image containing signal cubes in three segments (ACA, CP, PRN).
+1. Load the aligned atlas files from `test/atlas/` (`iwaInVivoAtlas_labels_v10.4.nii` and `InVivoAtlas_Sort_v10.4.csv`).
+2. Run `InVivoSegment.py` on `test/validation/InputData/MultisiteValidation.nii`, a single simulated image containing signal cubes in three segments (ACA, CP, PRN).
 3. Run the segmentation three times, applying intensity thresholds of `>0`, `>1`, and `>2` in turn. Each run produces a separate output file: `ValidationResults_thr0.csv`, `_thr1.csv`, `_thr2.csv`.
-4. Compare the resulting per-segment statistics against the manually computed reference values in `examples/validation/ValidationDataComparison.xlsx`.
+4. Compare the resulting per-segment statistics against validated CSVs in `examples/validation/OutputData/CSVs` and against the manually computed reference values in `examples/validation/ValidationDataComparison.xlsx`.
 
 **2. Group-level statistical map (SPM T-map; corresponds to Fig. 7 in the associated paper).**
 
-1. Using the same aligned atlas files, run `InVivoSegment.py` on the pre-thresholded T-map in `examples/statistical_tmap/InputData/`.
+1. Using the same aligned atlas files, run `InVivoSegment.py` on the pre-thresholded T-map in `test/statistical_tmap/InputData/`.
 2. Because significance thresholding is already applied upstream in SPM, no threshold value needs to be set in the GUI for this input type.
-3. Compare the output (`examples/statistical_tmap/OutputData/CSVs/SPMResults.csv`) against the values reported in the associated paper.
+3. Compare the CSV output in `test/statistical_tmap/OutputData/CSVs/` against the values in `examples/statistical_tmap/OutputData/CSVs/SPMResults.csv` and reported in the associated paper.
 
 `Examples.ipynb` automates both comparisons (and the corresponding column-graph summaries) if you would rather run them programmatically than by inspection. If your results reproduce the reference values above, you can proceed to your own data with confidence in the installation.
 
