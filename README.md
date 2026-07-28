@@ -163,11 +163,11 @@ Before applying InVivoSegment to new data, we recommend confirming that your ins
 Run `InVivoSegment.py` on `test/validation/InputData/MultisiteValidation.nii`, a single simulated image containing signal cubes in three segments (ACA, CP, PRN), as follows...
 
 0. In a terminal window navigate to the package directory and run `python InVivoSegment.py`
-1. Select the corresponding `test/` directory as output, and then load the aligned atlas files from `test/atlas/` (`iwaInVivoAtlas_labels_v10.4.nii` and `InVivoAtlas_Sort_v10.4.csv`).
+1. Select the corresponding `test/validation/` directory as output, and then load the aligned atlas files from `test/atlas/` (`iwaInVivoAtlas_labels_v10.4.nii` and `InVivoAtlas_Sort_v10.4.csv`).
 2. Generate masks, do not save masks for this validation
 3. Setup design. A) 1 group and 1 condition; B) Use default labels and ensure n = 1 for number of images to be selected. Save design.
 4. Select all segmentation measures check boxes. 
-5. Apply intensity thresholdof `0` 
+5. Apply an intensity threshold of `0` 
 6. Run segmentation - selecting the `test/validation/InputData/MultisiteValidation.nii` input file. Name the CSV output from each run as: `ValidationResults_thr0.csv`
 7. Repeat steps 5 and 6 twice, each time changing the threshold value {`1` or `2`} and CSV output filename {`ValidationResults_thr1.csv` or `ValidationResults_thr2.csv`}
 8. Compare the resulting per-segment statistics against validated CSVs in `examples/validation/OutputData/CSVs` and against the manually computed reference values in `examples/validation/ValidationDataComparison.xlsx`.
