@@ -172,7 +172,7 @@ Run `InVivoSegment.py` on `test/validation/InputData/MultisiteValidation.nii`, a
 7. Repeat steps 5 and 6 twice, each time changing the threshold value {`1` or `2`} and CSV output filename {`ValidationResults_thr1.csv` or `ValidationResults_thr2.csv`}
 8. Compare the resulting per-segment statistics against validated CSVs in `examples/validation/OutputData/CSVs` and against the manually computed reference values in `examples/validation/ValidationDataComparison.xlsx`.
 
-You can also try running the the first section of `Example.ipynb`, which is for this Multisite Validation data, using your newly generated data for futher validation.  
+You can also try running the first section of `Example.ipynb` using your newly generated data for futher validation.  
 
 **2. Group-level statistical map (SPM T-map; corresponds to Fig. 7 in the associated paper).**
 
