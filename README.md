@@ -4,7 +4,7 @@ A Python GUI application for anatomical segmentation of MRI brain images using t
 
 *If you use or modify this atlas or the InVivoSegment code, please cite this repository (see "Cite this Repository" above) and the published paper (DOI below).*
 
-[![bioRxiv](https://img.shields.io/badge/bioRxiv-10.64898/2026.04.10.717774-red)](https://doi.org/10.64898/2026.04.10.717774)
+[![bioRxiv](https://img.shields.io/badge/bioRxiv-10.XXXX%2FXXXXX-red)](https://doi.org/10.XXXX/XXXXX)
 
 ## Overview
 
@@ -31,7 +31,8 @@ Although developed for longitudinal Mn(II)-enhanced MRI (MEMRI) data, the segmen
 ### Requirements
 
 - Python 3.8 or higher
-- Dependencies: numpy, pandas, nibabel, matplotlib. Other packages are in the standard Python library.
+- __Core Python Dependencies__: numpy, pandas, nibabel, matplotlib. Other packages are in the standard Python library.
+- __Example.ipynb Dependencies__: jupyter (or notebook/jupyterlab) and python packages: scipy and seaborn. These are not required for the core segmentation application, but to run the notebook for validations. 
 
 ### Clone from GitHub
 
@@ -70,7 +71,7 @@ python InVivoSegment.py --version
 
 3. **Use the GUI to**:
    - Select your working directory
-   - Load the atlas lookup table and label image
+   - Load the atlas lookup table and __aligned__ label image
    - Specify your experimental design (groups and conditions)
    - Choose statistics to compute
    - Apply any necessary thresholds
@@ -88,20 +89,14 @@ This repository includes example data demonstrating:
 
 See the [Examples.ipynb](./Examples.ipynb) notebook and `/examples` directory for detailed walkthroughs.
 
-Once installed, open the [./Examples.ipynb](./Examples.ipynb) file and test run each section listed above (e.g., Multi-site validation, noise simulation, statistical maps). You can create a new segmentation output from using ```python InVivoSegment.py``` with the input files from each example provided. Create and walk through a copy of `Examples.ipynb` (e.g., `Validations.ipynb`) using your InVivoSegment CSV outputs as input data. Assess whether your output (csv and data summarized in `Validations.ipynb`) match our examples provided.
+### Example Directory Organization
 
-If you can do reproduce our results successfully, you can confidently move on to new applications.
-
-## Documentation
-
-### Directory Organization
-
-Organize your data hierarchically to facilitate systematic file selection within the GUI:
+Organize your data hierarchically to facilitate systematic file selection within the GUI. An example of how we have organized our data is shown below. 
 
 ```
 working_directory/
 ├── atlas/
-│   ├── InVivoAtlas_labels_v10.4.nii          # Atlas label image
+│   ├── InVivoAtlas_labels_v10.4.nii          # Atlas label image aligned to your data
 │   └── InVivoAtlas_Sort_v10.4.csv            # Atlas lookup table
 ├── intensities/
 │   ├── InputData/
@@ -156,6 +151,39 @@ working_directory/
 **Step 8 - Run Segmentation**: Select your input images and run segmentation. Results are saved to CSV format in `OutputData/CSVs/`.
 
 **Note on Paired/Longitudinal Data**: Images must be selected in consistent order across conditions to preserve subject alignment.
+
+
+### Validating Your Installation
+
+Before applying InVivoSegment to new data, we recommend confirming that your installation reproduces the reference results below. We focus here on the two examples used for quantitative validation in the associated paper; the noise-simulation example (`examples/noise_simulations/`) additionally characterizes segment-wise noise levels and is used to derive secondary thresholds, but is not required to confirm correct installation.
+
+**1. Multisite validation (simulated signal).**
+
+1. Load the aligned atlas files from `examples/atlas/` (`iwaInVivoAtlas_labels_v10.4.nii` and `InVivoAtlas_Sort_v10.4.csv`).
+2. Run `InVivoSegment.py` on `examples/validation/InputData/MultisiteValidation.nii`, a single simulated image containing signal cubes in three segments (ACA, CP, PRN).
+3. Run the segmentation three times, applying intensity thresholds of `>0`, `>1`, and `>2` in turn. Each run produces a separate output file: `ValidationResults_thr0.csv`, `_thr1.csv`, `_thr2.csv`.
+4. Compare the resulting per-segment statistics against the manually computed reference values in `examples/validation/ValidationDataComparison.xlsx`.
+
+**2. Group-level statistical map (SPM T-map; corresponds to Fig. 7 in the associated paper).**
+
+1. Using the same aligned atlas files, run `InVivoSegment.py` on the pre-thresholded T-map in `examples/statistical_tmap/InputData/`.
+2. Because significance thresholding is already applied upstream in SPM, no threshold value needs to be set in the GUI for this input type.
+3. Compare the output (`examples/statistical_tmap/OutputData/CSVs/SPMResults.csv`) against the values reported in the associated paper.
+
+`Examples.ipynb` automates both comparisons (and the corresponding column-graph summaries) if you would rather run them programmatically than by inspection. If your results reproduce the reference values above, you can proceed to your own data with confidence in the installation.
+
+### Experimental Design Inputs Across Study Types
+
+The **Experimental Design** step of the GUI (Step 5, below) is flexible enough to accommodate designs ranging from a single image to many subjects across multiple groups and conditions. The table below shows how the Groups/Conditions/images-per-cell inputs differ across the examples in this repository, to help you configure this step for your own data:
+
+| Dataset type | Groups | Conditions | Images per group×condition (*n*) | Threshold |
+|---|---|---|---|---|
+| Multisite validation (single simulated image) | 1 | 1 | 1 | Set manually; run once per threshold (`>0`, `>1`, `>2`) |
+| Single statistical map (e.g., one T-map contrast) | 1 | 1 | 1 (pre-thresholded map) | None — thresholding already applied upstream |
+| Multiple within/between-group statistical maps | ≥1 per comparison | 1 contrast per map | 1 per contrast | None — each map pre-thresholded |
+| Longitudinal/cross-sectional intensity images | e.g., 2 | e.g., 2+ (e.g., pre-/post-Mn(II)) | e.g., *n* = 11 per group×condition | Optional |
+
+For paired or longitudinal designs with multiple images per subject, images must be selected in a consistent order across conditions in Step 8 to preserve subject alignment (see the Note under GUI Workflow, below).
 
 ## Contributing
 
