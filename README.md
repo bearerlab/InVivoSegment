@@ -36,7 +36,7 @@ Although developed for longitudinal Mn(II)-enhanced MRI (MEMRI) data, the segmen
 ### Clone from GitHub
 
 ```bash
-git clone https://github.com/bearererlab/InVivoSegment.git
+git clone https://github.com/bearerlab/InVivoSegment.git
 cd InVivoSegment
 ```
 
