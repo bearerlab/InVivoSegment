@@ -2,7 +2,7 @@
 
 A Python GUI application for anatomical segmentation of MRI brain images using the *InVivo* Mouse Brain Atlas.
 
-*If you use or modify this atlas or the InVivoSegment code, please cite this repository (see "Cite this Repository" above) and the published paper (DOI below).*
+*If you use or modify this atlas or the InVivoSegment code, please cite this repository (see "Cite this Repository" above) and the preprint listed below (DOI below).*
 
 [![bioRxiv](https://img.shields.io/badge/bioRxiv-10.64898%2F2026.04.10.717774-red)](https://doi.org/10.64898/2026.04.10.717774)
 
