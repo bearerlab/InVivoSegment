@@ -207,9 +207,9 @@ This project is licensed under the MIT License - see the [LICENSE](./LICENSE) fi
 
 ## Authors
 
-- **Taylor W. Uselman** ([twuselman@salud.unm.edu](mailto:twuselman@salud.unm.edu))
+- **Taylor W. Uselman** ([taylor.uselman@gmail.com](mailto:taylor.uselman@gmail.com))
 - **Elaine L. Bearer** ([elaine.bearer@gmail.com](mailto:elaine.bearer@gmail.com)) - corresponding author
 
 ## Support
 
-For issues, questions, or feature requests, please open an issue on GitHub: [Issues](https://github.com/bearererlab/InVivoSegment/issues)
+For issues, questions, or feature requests, please open an issue on GitHub: [Issues](../../issues)
